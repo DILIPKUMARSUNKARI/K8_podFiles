@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres-pod
+  labels:
+   type: db
+   author: Dilip
+spec:
+ containers:
+  - name: mypostgres
+    image: postgres
+    env:
+     - name: POSTGRES_USER
+       value: admin
+     - name: POSTGRES_PASSWORD 
+       value: admin
+     - name: POSTGRES_DB
+       value : mydb   
