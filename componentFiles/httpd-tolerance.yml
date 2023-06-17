@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: deployment
+  labels:
+    type: proxy
+    author: Dilip
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: proxy
+  template:
+    metadata:
+       name: httpd-pod
+       labels:
+         type: proxy
+    spec:
+      containers:
+        - name: myhttpd
+          image: httpd
+      tolerations:
+        - key: slave2
+          operator: Equal
+          value: Pradeep
+...            
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

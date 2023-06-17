@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    type: db
+    app: mysql
+spec: 
+  replicas: 2
+  selector:
+     matchLabels:
+       type: db
+       app: mysql
+  template:
+    metadata:
+      name: mysql_pod
+      labels:
+        type: db
+        app: mysql
+
+    spec:
+      containers:
+          - name: mysql
+            image: mysql:5
+            env:
+             - name: MYSQL_ROOT_PASSWORD
+               value: admin      
+      

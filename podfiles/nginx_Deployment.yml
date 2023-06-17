@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    type: app
+    author: Dilip
+spec:
+  replicas: 3
+  selector: 
+   matchLabels:
+     type: app
+     author: Dilip
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: app
+        author: Dilip  
+            
+    spec:
+     containers:
+      - name: mynginx-container
+        image: nginx
+          #   ports:
+          #  - containerPort: 80
+          #  hostPort: 8888     
+
+...                
